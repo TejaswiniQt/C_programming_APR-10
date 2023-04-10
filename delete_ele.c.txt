@@ -1,0 +1,38 @@
+//Program to Delete an Element from Array in C
+#include<stdio.h>
+
+int main()
+{
+    int array[10], element, c, n, pos;
+    int found = 0; 
+    printf("\n\nEnter number of elements in array:");
+    scanf("%d", &n);
+    printf("Enter %d elements\n", n);
+    for(c = 0; c < n; c++)
+        scanf("%d", &array[c]);
+    printf("The input array is:\n");
+    for(c = 0; c < n; c++)
+    printf("%d ", array[c]);
+    printf("\nEnter the element to be deleted:\n");
+    scanf("%d", &element);
+    for(c = 0; c < n; c++)
+    {
+        if(array[c] == element)
+        {
+            found = 1;
+            pos = c;
+            break;  
+        }
+    }
+    if(found == 1) 
+    {
+        for(c = pos; c < n-1; c++)
+            array[c] = array[c+1];
+    }
+    else
+        printf("Element %d is not found in the array\n", element);
+    printf("Resultant array is:\n");
+    for(c = 0; c < n-1; c++) 
+        printf("%d  ",array[c]);
+    return 0;
+}
